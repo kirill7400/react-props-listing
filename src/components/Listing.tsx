@@ -1,5 +1,10 @@
-function Listing({ items }) {
-  const titleValidator = (v) => {
+// @ts-ignore
+import React from "react";
+
+type prop = { items?: Array<any> };
+
+function Listing({ items }: prop) {
+  const titleValidator = (v: string) => {
     if (v && v.length > 50) {
       v = v.slice(0, 50) + '...'
     }
@@ -7,7 +12,7 @@ function Listing({ items }) {
     return v
   }
 
-  const priceValidator = (num, code) => {
+  const priceValidator = (num: string, code: string) => {
     let price = ''
 
     if (code === 'USD') price = `$${num}`
@@ -17,7 +22,7 @@ function Listing({ items }) {
     return price
   }
 
-  const quantityValidator = (num) => {
+  const quantityValidator = (num: number) => {
     let level = 'level-high'
 
     if (num <= 10) level = 'level-low'
@@ -26,7 +31,7 @@ function Listing({ items }) {
     return level
   }
 
-  let list = items.map(item =>
+  let list: React.JSX.Element[] = items.map(item =>
     <div key={ item.listing_id } className="item">
       <div className="item-image">
         <a href={ item.url }>

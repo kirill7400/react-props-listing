@@ -1,6 +1,6 @@
 import './App.css';
 import json from './json/etsy.json'
-import Listing from './components/Listing'
+import Listing from './components/Listing.tsx'
 
 function App() {
   let items = []
